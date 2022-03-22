@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react'
 import { Button, Text,View, Alert, TouchableOpacity } from 'react-native'
 
+
 import HomeScreen from './screens/HomeScreen';
 import {Provider} from 'react-redux'
 import {store} from "./s"
@@ -82,3 +83,9 @@ const Stack = createStackNavigator();
 // }
 
 //export default App
+
+
+
+
+
+//export default App 

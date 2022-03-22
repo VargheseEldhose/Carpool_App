@@ -4,8 +4,10 @@ import { StyleSheet, Alert,Button,Text, View } from 'react-native'
 //import SplashScreen from 'react-native-splash-screen' 
 const HomeScreen = ({navigation}) => {
 
+
    
     return (
+      
 
 
         <View style={{flex : 1,justifyContent:'center', alignItems : 'center'}}>
@@ -15,8 +17,12 @@ const HomeScreen = ({navigation}) => {
          // </TouchableOpacity> */}
           <Button title ='Rider' onPress={()=> navigation.navigate('Rider')}></Button>
           <Button title ='Driver' onPress={()=> navigation.navigate('Driver')}></Button>
+      
         </View>
     )
 }
 
 export default HomeScreen
+
+
+const styles = StyleSheet.create({})

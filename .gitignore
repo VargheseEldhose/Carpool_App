@@ -58,4 +58,7 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+<<<<<<< HEAD
 .env
+=======
+>>>>>>> ed6d0078b6bb3dab1d7ec16f5e2c7c9c5f29135a
