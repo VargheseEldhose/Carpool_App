@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { StyleSheet,SafeAreaView, Alert,Button,Text, View } from 'react-native';
+import { StyleSheet,SafeAreaView, TextInput,Alert,Button,Text, View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import {GOOGLE_MAPS_APIKEY} from "@env";
 import tw from "twrnc";
 
-const Driver = () => {
+const Driver = ({navigation}) => {
 
    
     return (
@@ -65,7 +65,31 @@ const Driver = () => {
       debounce={400}
 
  />
+ <TextInput placeholder='Enter departure time: ' 
+       
+       style={{
+     
+        color:'black',
+        height: 43,
+        borderRadius:5,
+        marginTop:15,
+        marginLeft:7,
+        paddingLeft:10,
+        width:358,
+        fontSize:18,
+        
+       
+          color:'black',
+          backgroundColor:'silver'
+        
+         
+        }}/>
+
+
+  <Text style = { {fontSize : 30, color:'black',marginTop:50} }>Distance(requires working API key)</Text>
+  <Text style = { {fontSize : 30, color:'black',marginTop:50 ,marginBottom:50} }>Price:(requires working API key)</Text>
   
+  <Button title ='Next' onPress={()=> navigation.navigate('Eventconfirmed')}></Button>
           
         </View>
         </SafeAreaView>
@@ -73,11 +97,3 @@ const Driver = () => {
 }
 
 export default Driver
-
-const styles=StyleSheet.create({
-
-  text:{
-    color:"blue",
-
-  },
-});
