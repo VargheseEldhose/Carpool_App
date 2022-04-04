@@ -9,18 +9,17 @@ const Driver = ({navigation}) => {
    
     return (
 
-<SafeAreaView style={tw`bg-white h-full`}>
+<SafeAreaView >
       
         <View style={tw`p-5`}>
 
-         <GooglePlacesAutocomplete
+         <GooglePlacesAutocomplete class='pac-container'
       
              placeholder="Enter starting point..."
              styles={{
                container:{
-                 flex:0,
-                 padding:10,
-                 marginTop:20
+                 flex:0
+                 
                },
                textInput:{
                  fontSize:18,
@@ -28,15 +27,26 @@ const Driver = ({navigation}) => {
                  backgroundColor:"silver"
                 
                },
+               nearbyPlacesAPI:{
+                 color:"black",
+                 backgroundColor:"black"
+               }
+             
+            
                
               
              }}
              query={{
               key:GOOGLE_MAPS_APIKEY,
               language:"en",
+              
+             
+              
             }}
+
              nearbyPlacesAPI="GooglePlacesSearch"
-             debounce={400}
+             debounce={100}
+            
 
         />
          <GooglePlacesAutocomplete
@@ -46,20 +56,26 @@ const Driver = ({navigation}) => {
         container:{
           flex:0,
         padding:10,
-        marginTop:10
+        marginTop:10,
+        color:"black",
+        
           
         },
         textInput:{
+          
           fontSize:18,
           color:"black",
-          backgroundColor:"silver"
+          backgroundColor:"silver",
+          
          
         },
-       
+        
       }}
+      textInputProps={{queryTextColor:"#666"}}
       query={{
        key:GOOGLE_MAPS_APIKEY,
        language:"en",
+       
      }}
       nearbyPlacesAPI="GooglePlacesSearch"
       debounce={400}
