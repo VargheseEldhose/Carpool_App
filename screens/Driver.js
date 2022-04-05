@@ -1,19 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { StyleSheet,SafeAreaView, TextInput,Alert,Button,Text, View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import {GOOGLE_MAPS_APIKEY} from "@env";
 import tw from "twrnc";
+import { setOrigin, setDestination } from '../slices/navSlice';
+//import { setOrigin, setDestination } from '../slices/navSlice';
 
 const Driver = ({navigation}) => {
 
    
     return (
 
-<SafeAreaView >
+<SafeAreaView>
       
         <View style={tw`p-5`}>
 
-         <GooglePlacesAutocomplete class='pac-container'
+         <GooglePlacesAutocomplete 
       
              placeholder="Enter starting point..."
              styles={{
@@ -26,16 +28,13 @@ const Driver = ({navigation}) => {
                  color:"black",
                  backgroundColor:"silver"
                 
-               },
-               nearbyPlacesAPI:{
-                 color:"black",
-                 backgroundColor:"black"
-               }
-             
-            
+               }             
+
                
               
              }}
+          
+          
              query={{
               key:GOOGLE_MAPS_APIKEY,
               language:"en",
@@ -49,6 +48,8 @@ const Driver = ({navigation}) => {
             
 
         />
+
+
          <GooglePlacesAutocomplete
       
       placeholder="Enter destination point..."
@@ -57,7 +58,7 @@ const Driver = ({navigation}) => {
           flex:0,
         padding:10,
         marginTop:10,
-        color:"black",
+        color:"black"
         
           
         },
@@ -71,7 +72,18 @@ const Driver = ({navigation}) => {
         },
         
       }}
-      textInputProps={{queryTextColor:"#666"}}
+      onPress={(data,details=null)=>{
+        dispatch(
+          setOrigin({
+            location:details.geometry.location,
+            description:data.description,
+          })
+        );
+        dispatch(setDestination(null));
+      }}
+      fetchDetails={true}
+      returnKeyType={"Search"}
+   
       query={{
        key:GOOGLE_MAPS_APIKEY,
        language:"en",
