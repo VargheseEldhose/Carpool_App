@@ -4,9 +4,10 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import {GOOGLE_MAPS_APIKEY} from "@env";
 import tw from "twrnc";
 import { setOrigin, setDestination } from '../slices/navSlice';
-//import { setOrigin, setDestination } from '../slices/navSlice';
+import {useDispatch} from 'react-redux'
 
 const Driver = ({navigation}) => {
+  const dispatch = useDispatch();
 
    
     return (
@@ -33,7 +34,17 @@ const Driver = ({navigation}) => {
                
               
              }}
-          
+             onPress={(data,details=null)=>{
+              dispatch(
+                setOrigin({
+                  location:details.geometry.location,
+                  description:data.description,
+                })
+              );
+              dispatch(setDestination(null));
+            }}
+            fetchDetails={true}
+            returnKeyType={"Search"}
           
              query={{
               key:GOOGLE_MAPS_APIKEY,
@@ -72,17 +83,7 @@ const Driver = ({navigation}) => {
         },
         
       }}
-      onPress={(data,details=null)=>{
-        dispatch(
-          setOrigin({
-            location:details.geometry.location,
-            description:data.description,
-          })
-        );
-        dispatch(setDestination(null));
-      }}
-      fetchDetails={true}
-      returnKeyType={"Search"}
+    
    
       query={{
        key:GOOGLE_MAPS_APIKEY,

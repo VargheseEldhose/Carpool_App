@@ -24,8 +24,8 @@ const Stack = createStackNavigator();
  }, [])
  
  return (
-  
-  <NavigationContainer store={store}>
+  <Provider store={store}>
+  <NavigationContainer >
      
      <Stack.Navigator>
      
@@ -60,6 +60,7 @@ const Stack = createStackNavigator();
      </Stack.Navigator>
   
    </NavigationContainer>
+   </Provider>
  );
 
  };
