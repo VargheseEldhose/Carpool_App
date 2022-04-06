@@ -3,11 +3,14 @@ import { StyleSheet,SafeAreaView, TextInput,Alert,Button,Text, View } from 'reac
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import {GOOGLE_MAPS_APIKEY} from "@env";
 import tw from "twrnc";
-import { setOrigin, setDestination } from '../slices/navSlice';
+import { setOrigin, setDestination, selectOrigin } from '../slices/navSlice';
 import {useDispatch} from 'react-redux'
+import {useSelector} from "react-redux"
+
 
 const Driver = ({navigation}) => {
   const dispatch = useDispatch();
+  const origin =useSelector(selectOrigin);
 
    
     return (
@@ -41,7 +44,7 @@ const Driver = ({navigation}) => {
                   description:data.description,
                 })
               );
-              dispatch(setDestination(null));
+           
             }}
             fetchDetails={true}
             returnKeyType={"Search"}
@@ -83,7 +86,16 @@ const Driver = ({navigation}) => {
         },
         
       }}
-    
+      onPress={(data,details=null)=>{
+        dispatch(
+          setDestination({
+            location:details.geometry.location,
+            description:data.description,
+          })
+        );
+        
+      }}
+      fetchDetails={true}
    
       query={{
        key:GOOGLE_MAPS_APIKEY,
@@ -118,8 +130,13 @@ const Driver = ({navigation}) => {
   <Text style = { {fontSize : 30, color:'black',marginTop:50} }>Distance(requires working API key)</Text>
   <Text style = { {fontSize : 30, color:'black',marginTop:50 ,marginBottom:50} }>Price:(requires working API key)</Text>
   
-  <Button title ='Next' onPress={()=> navigation.navigate('Eventconfirmed')}></Button>
+  
+ 
+  
+  <View >
+  <Button style={tw`${!origin&&"opacity-20"}`} title ='Post Event' onPress={()=> navigation.navigate('Eventconfirmed')}></Button>
           
+        </View>
         </View>
         </SafeAreaView>
     )
