@@ -128,7 +128,8 @@ const Driver = ({navigation}) => {
         }}/>
 
 
-  <Text style = { {fontSize : 30, color:'black',marginTop:50} }>{travelTimeInformation?.duration.text}</Text>
+  <Text style = { {fontSize : 30, color:'black',marginTop:50} }>Distance: {travelTimeInformation?.distance.text}</Text>
+  <Text style = { {fontSize : 30, color:'black',marginTop:50} }>Duration: {travelTimeInformation?.duration.text}</Text>
   <Text style = { {fontSize : 30, color:'black',marginTop:50 ,marginBottom:50} }>Price:(requires working API key)</Text>
   
   
