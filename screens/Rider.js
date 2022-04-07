@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react'
-import { StyleSheet, Alert,Button,Text, View } from 'react-native'
+import { StyleSheet, SafeAreaView, TextInput,Alert,Button,Text, View } from 'react-native'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import {GOOGLE_MAPS_APIKEY} from "@env";
 import tw from "twrnc";
-const Rider = ({navigation}) => {
+import { setOrigin, setDestination } from '../slices/navSlice';
+import {useDispatch} from 'react-redux'
 
+const Rider = ({navigation}) => {
+  const dispatch = useDispatch();
    
     return (
-
+    
+    <SafeAreaView>
 
         <View style={tw`p-5`}>
           
@@ -17,8 +21,7 @@ const Rider = ({navigation}) => {
       styles={{
         container:{
           flex:0,
-          padding:10,
-          marginTop:20
+          
         },
         textInput:{
           fontSize:18,
@@ -29,12 +32,24 @@ const Rider = ({navigation}) => {
         
        
       }}
+      onPress={(data,details=null)=>{
+        dispatch(
+          setOrigin({
+            location:details.geometry.location,
+            description:data.description,
+          })
+        );
+        
+      }}
+      fetchDetails={true}
+      returnKeyTYPE={"Search"}
+
       query={{
        key:GOOGLE_MAPS_APIKEY,
        language:"en",
      }}
       nearbyPlacesAPI="GooglePlacesSearch"
-      debounce={400}
+      debounce={100}
 
  />
   <GooglePlacesAutocomplete
@@ -45,7 +60,7 @@ styles={{
    flex:0,
  padding:10,
  marginTop:10,
- marginBottom:80
+ color:"black"
    
  },
  textInput:{
@@ -56,6 +71,16 @@ styles={{
  },
 
 }}
+onPress={(data,details=null)=>{
+  dispatch(
+    setDestination({
+      location:details.geometry.location,
+      description:data.description,
+    })
+  );
+
+}}
+fetchDetails={true}
 query={{
 key:GOOGLE_MAPS_APIKEY,
 language:"en",
@@ -66,8 +91,9 @@ debounce={400}
 />
 
 
-          <Button title ='Next' onPress={()=> navigation.navigate('BookRide')}></Button>
+<Button title ='Next' onPress={()=> navigation.navigate('SelectRide')}></Button>
         </View>
+        </SafeAreaView>
     )
 }
 

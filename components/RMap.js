@@ -8,7 +8,7 @@ import {useSelector} from "react-redux"
 import MapViewDirections from 'react-native-maps-directions';
 import {useRef} from 'react'
 
-const Map = () => {
+const RMap = () => {
     const origin=useSelector(selectOrigin);
     const destination=useSelector(selectDestination);
     const mapref = useRef(null);
@@ -70,6 +70,6 @@ const Map = () => {
     );
 }
 
-export default Map
+export default RMap
 
 const styles = StyleSheet.create({})

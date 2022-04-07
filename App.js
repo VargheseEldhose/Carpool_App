@@ -10,7 +10,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import RiderScreen from './screens/Rider';
 import DriverScreen from './screens/Driver';
-import BookRide from './screens/BookRide';
+import SelectRide from './screens/SelectRide';
 import DriverEventconfirmed from './screens/DriverEventConfirmed';
 
 
@@ -42,9 +42,9 @@ const Stack = createStackNavigator();
          options={{ title: 'Rider' }}
        />
          <Stack.Screen
-         name="BookRide"
-         component={BookRide}
-         options={{ title: 'Book A Ride' }}
+         name="SelectRide"
+         component={SelectRide}
+         options={{ title: 'Select A Ride' }}
        />
      
        <Stack.Screen name="Driver"
