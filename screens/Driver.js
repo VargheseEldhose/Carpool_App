@@ -3,7 +3,7 @@ import { StyleSheet,SafeAreaView, TextInput,Alert,Button,Text, View } from 'reac
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import {GOOGLE_MAPS_APIKEY} from "@env";
 import tw from "twrnc";
-import { setOrigin, setDestination, selectOrigin,setTravelTimeInformation } from '../slices/navSlice';
+import { setOrigin, setDestination, selectOrigin,selectTravelTimeInformation } from '../slices/navSlice';
 import {useDispatch} from 'react-redux'
 import {useSelector} from "react-redux"
 
@@ -11,7 +11,7 @@ import {useSelector} from "react-redux"
 const Driver = ({navigation}) => {
   const dispatch = useDispatch();
   const origin =useSelector(selectOrigin);
-  const travelTimeInformation=useSelector(setTravelTimeInformation);
+  const travelTimeInformation=useSelector(selectTravelTimeInformation);
 
    
     return (
@@ -128,7 +128,7 @@ const Driver = ({navigation}) => {
         }}/>
 
 
-  <Text style = { {fontSize : 30, color:'black',marginTop:50} }>{travelTimeInformation?.duration.text}n</Text>
+  <Text style = { {fontSize : 30, color:'black',marginTop:50} }>{travelTimeInformation?.duration.text}</Text>
   <Text style = { {fontSize : 30, color:'black',marginTop:50 ,marginBottom:50} }>Price:(requires working API key)</Text>
   
   

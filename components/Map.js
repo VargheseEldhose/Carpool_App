@@ -7,7 +7,7 @@ import { selectOrigin, selectDestination } from '../slices/navSlice';
 import {useSelector} from "react-redux"
 import MapViewDirections from 'react-native-maps-directions';
 import {useRef} from 'react'
-import { setTravelTimeInformation } from '../slices/navSliceRider';
+import { setTravelTimeInformation } from '../slices/navSlice';
 import {useDispatch} from 'react-redux'
 
 const Map = () => {
@@ -31,7 +31,7 @@ const Map = () => {
                    units=imperial&origins=${origin.description}&destinations=${destination.description}&key=${GOOGLE_MAPS_APIKEY}` )
                    .then((res)=>res.json())
                    .then((data)=>{
-                       console.log(data);
+                      console.log(data);
  dispatch(setTravelTimeInformation(data.rows[0].elements[0]));
                    });
         }; 
