@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import {GOOGLE_MAPS_APIKEY} from "@env";
 import MapView,{Marker} from 'react-native-maps'
 import tw from "twrnc"
-import { selectOrigin, selectDestination } from '../slices/navSlice';
+import { selectOrigin, selectDestination } from '../slices/navSliceRider';
 import {useSelector} from "react-redux"
 import MapViewDirections from 'react-native-maps-directions';
 import {useRef} from 'react'

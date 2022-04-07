@@ -3,11 +3,14 @@ import { StyleSheet, SafeAreaView, TextInput,Alert,Button,Text, View } from 'rea
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import {GOOGLE_MAPS_APIKEY} from "@env";
 import tw from "twrnc";
-import { setOrigin, setDestination } from '../slices/navSlice';
-import {useDispatch} from 'react-redux'
+import { setOrigin, setDestination,selectOrigin } from '../slices/navSliceRider';
+import {useDispatch} from 'react-redux';
+import {useSelector} from "react-redux";
+
 
 const Rider = ({navigation}) => {
   const dispatch = useDispatch();
+  const origin=useSelector(selectOrigin);
    
     return (
     
