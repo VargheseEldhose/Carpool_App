@@ -11,7 +11,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import RiderScreen from './screens/Rider';
 import DriverScreen from './screens/Driver';
 import SelectRide from './screens/SelectRide';
-import DriverEventconfirmed from './screens/DriverEventConfirmed';
+import DriverReviewPrice from './screens/DriverReviewPrice';
 
 
 const Stack = createStackNavigator();
@@ -52,9 +52,9 @@ const Stack = createStackNavigator();
         options={{ title: 'Driver'}} 
       />
         <Stack.Screen 
-        name="Eventconfirmed"
-        component={DriverEventconfirmed}
-        options={{ title: 'Confirmation'}} 
+        name="DriverReviewPrice"
+        component={DriverReviewPrice}
+        options={{ title: 'Review Price'}} 
       />
 
      </Stack.Navigator>

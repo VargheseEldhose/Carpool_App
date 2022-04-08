@@ -6,19 +6,22 @@ import tw from "twrnc";
 import { setOrigin, setDestination, selectOrigin,selectTravelTimeInformation } from '../slices/navSlice';
 import {useDispatch} from 'react-redux'
 import {useSelector} from "react-redux"
+import Map from "../components/Map"
 
  
 const Driver = ({navigation}) => {
   const dispatch = useDispatch();
   const origin =useSelector(selectOrigin);
-  const travelTimeInformation=useSelector(selectTravelTimeInformation);
+  
 
    
     return (
 
 <SafeAreaView>
+  
       
         <View style={tw`p-5`}>
+       
 
          <GooglePlacesAutocomplete 
       
@@ -49,7 +52,7 @@ const Driver = ({navigation}) => {
             }}
             fetchDetails={true}
             returnKeyType={"Search"}
-          
+          minLength={6}
              query={{
               key:GOOGLE_MAPS_APIKEY,
               language:"en",
@@ -59,7 +62,7 @@ const Driver = ({navigation}) => {
             }}
 
              nearbyPlacesAPI="GooglePlacesSearch"
-             debounce={100}
+             debounce={400}
             
 
         />
@@ -97,7 +100,7 @@ const Driver = ({navigation}) => {
         
       }}
       fetchDetails={true}
-   
+      minLength={6}
       query={{
        key:GOOGLE_MAPS_APIKEY,
        language:"en",
@@ -128,15 +131,14 @@ const Driver = ({navigation}) => {
         }}/>
 
 
-  <Text style = { {fontSize : 30, color:'black',marginTop:50} }>Distance: {travelTimeInformation?.distance.text}</Text>
-  <Text style = { {fontSize : 30, color:'black',marginTop:50} }>Duration: {travelTimeInformation?.duration.text}</Text>
+  
   <Text style = { {fontSize : 30, color:'black',marginTop:50 ,marginBottom:50} }>Price:(requires working API key)</Text>
   
   
  
   
   <View >
-  <Button style={tw`${!origin&&"opacity-20"}`} title ='Post Event' onPress={()=> navigation.navigate('Eventconfirmed')}></Button>
+  <Button style={tw`${!origin&&"opacity-20"}`} title ='Post Event' onPress={()=> navigation.navigate('DriverReviewPrice')}></Button>
           
         </View>
         </View>
