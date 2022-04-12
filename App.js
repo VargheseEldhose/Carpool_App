@@ -12,7 +12,8 @@ import RiderScreen from './screens/Rider';
 import DriverScreen from './screens/Driver';
 import SelectRide from './screens/SelectRide';
 import DriverReviewPrice from './screens/DriverReviewPrice';
-
+import BookRide from './screens/BookRide';
+import driverEventPosted from'./screens/driverEventPosted';
 
 const Stack = createStackNavigator();
 
@@ -57,6 +58,19 @@ const Stack = createStackNavigator();
         options={{ title: 'Review Price'}} 
       />
 
+      
+        <Stack.Screen 
+        name="BookRide"
+        component={BookRide}
+        options={{ title: 'Corfirm booking'}} 
+      />
+  <Stack.Screen
+         
+         name="driverEventPosted"
+         component={driverEventPosted}
+         options={{ title: 'Event posted' }}
+      
+    />
      </Stack.Navigator>
   
    </NavigationContainer>
