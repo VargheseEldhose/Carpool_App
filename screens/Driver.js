@@ -7,14 +7,32 @@ import { setOrigin, setDestination, selectOrigin,selectTravelTimeInformation } f
 import {useDispatch} from 'react-redux'
 import {useSelector} from "react-redux"
 import Map from "../components/Map"
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
  
 const Driver = ({navigation}) => {
   const dispatch = useDispatch();
   const origin =useSelector(selectOrigin);
-  
-
+  //AsyncStorage.setItem('origin',JSON.stringify(origin.description))
+  const [text,setText] = React.useState('');
+  const saveTime = async () => {
+    try{    
+    AsyncStorage.setItem('appData', text)}
+    catch (error){
+      console.log(error);
+    }
+  }; 
    
+  AsyncStorage.setItem(
+    'UID123',
+    JSON.stringify(text))
+    
+      
+          AsyncStorage.getItem('UID123', (err, result) => {
+            console.log(result);
+
+          });
+    
+  
     return (
 
 <SafeAreaView>
@@ -71,6 +89,7 @@ const Driver = ({navigation}) => {
          <GooglePlacesAutocomplete
       
       placeholder="Enter destination point..."
+     
       styles={{
         container:{
           flex:0,
@@ -111,6 +130,7 @@ const Driver = ({navigation}) => {
 
  />
  <TextInput placeholder='Enter departure time: ' 
+  onChangeText={value => setText(value)}
        
        style={{
      
@@ -132,13 +152,13 @@ const Driver = ({navigation}) => {
 
 
   
-  <Text style = { {fontSize : 30, color:'black',marginTop:50 ,marginBottom:50} }>Price:(requires working API key)</Text>
+
   
   
  
   
   <View >
-  <Button style={tw`${!origin&&"opacity-20"}`} title ='Post Event' onPress={()=> navigation.navigate('DriverReviewPrice')}></Button>
+  <Button style={tw`${!origin&&"opacity-20"}`} title ='Post Event' onPress={()=> {saveTime; navigation.navigate('DriverReviewPrice')}}></Button>
           
         </View>
         </View>

@@ -1,9 +1,12 @@
 import {createSlice} from "@reduxjs/toolkit";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { panGestureHandlerCustomNativeProps } from "react-native-gesture-handler/lib/typescript/handlers/PanGestureHandler";
 const initialState={
     origin:null,
     destination:null,
     travelTimeInformation:null
 }
+
 
 export const navSlice=createSlice({
     name:'nav',
