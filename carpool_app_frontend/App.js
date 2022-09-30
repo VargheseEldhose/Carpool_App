@@ -3,6 +3,7 @@ import { Button, Text,View, Alert, TouchableOpacity } from 'react-native';
 
 
 import HomeScreen from './screens/HomeScreen';
+import SignScreen from './screens/LogSign'
 import {Provider} from 'react-redux';
 import {store} from "./store";
 import SplashScreen from 'react-native-splash-screen'
@@ -37,6 +38,14 @@ const Stack = createStackNavigator();
          options={{ title: 'Carpool App' }}
 
     />
+
+<Stack.Screen
+
+name="LoginScreen"
+component={SignScreen}
+options={{ title: 'Log in' }}
+
+/>
        <Stack.Screen
          name="Rider"
          component={RiderScreen}

@@ -3,6 +3,7 @@ import { StyleSheet, SafeAreaView, TextInput, Alert, Button, Text, View } from '
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import tw from "twrnc";
+import DatePicker from 'react-native-date-picker'
 import { insertDriverPost } from '../dataAccess/DriverRepository'
 
 import {
@@ -28,10 +29,14 @@ const Driver = ({ navigation }) => {
 
   return (
 
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor:'black'}}>
+<View style={{width:420,backgroundColor:"#189AEA",padding:15}}>          
+         
+         <Text style={{fontSize:30,color:'black',fontWeight:'bold',fontStyle:'italic'}}>Carpool App</Text>
 
+    </View>
       <View style={tw`p-5`}>
-
+      <Text style={{fontSize:20,margin:15,marginTop:25}}>Select starting point:</Text>
         <GooglePlacesAutocomplete
 
           placeholder="Enter starting point..."
@@ -58,7 +63,7 @@ const Driver = ({ navigation }) => {
           }}
           fetchDetails={true}
           returnKeyType={"Search"}
-          minLength={6}
+          minLength={2}
           query={{
             key: GOOGLE_MAPS_APIKEY,
             language: "en",
@@ -68,7 +73,7 @@ const Driver = ({ navigation }) => {
           debounce={400}
 
         />
-
+ <Text style={{fontSize:20,margin:15,marginTop:25}}>Select destination:</Text>
         <GooglePlacesAutocomplete
 
           placeholder="Enter destination point..."
@@ -97,7 +102,7 @@ const Driver = ({ navigation }) => {
 
           }}
           fetchDetails={true}
-          minLength={6}
+          minLength={3}
           query={{
             key: GOOGLE_MAPS_APIKEY,
             language: "en",
