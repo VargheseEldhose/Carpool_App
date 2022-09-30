@@ -28,24 +28,35 @@ const Rider = ({ navigation }) => {
 
   return (
 
-    <SafeAreaView>
+   
+      <View style={{backgroundColor:'black'}}>
+ <View style={{width:420,backgroundColor:"#189AEA",padding:15}}>          
+         
+            <Text style={{fontSize:30,color:'black',fontWeight:'bold',fontStyle:'italic'}}>Carpool App</Text>
 
-      <View style={tw`p-5`}>
-
-        <Text>Select starting point:</Text>
+       </View>
+        <Text style={{fontSize:20,margin:15,marginTop:25}}>Select starting point:</Text>
+       
         <GooglePlacesAutocomplete
 
           placeholder="Enter starting point..."
           styles={{
             container: {
-              flex: 0
+              flex: 0,
+              color: "black",
+              width:380,
+              marginLeft:15
+
 
             },
+           
             textInput: {
               fontSize: 18,
               color: "black",
               backgroundColor: "silver"
             }
+          
+          
 
           }}
           onPress={(data, details = null) => {
@@ -60,7 +71,7 @@ const Rider = ({ navigation }) => {
           on
           fetchDetails={true}
           returnKeyType={"Search"}
-          minLength={6}
+          minLength={2}
           query={{
             key: GOOGLE_MAPS_APIKEY,
             language: "en",
@@ -71,14 +82,17 @@ const Rider = ({ navigation }) => {
 
         />
 
-        <Text>Select destination:</Text>
+        <Text style={{fontSize:20,margin:15,marginTop:25}}>Select destination:</Text>
+       
         <GooglePlacesAutocomplete
 
           placeholder="Enter destination point..."
           styles={{
             container: {
               flex: 0,
-              color: "black"
+              color: "black",
+              width:380,
+              marginLeft:10
 
 
             },
@@ -102,7 +116,7 @@ const Rider = ({ navigation }) => {
 
           }}
           fetchDetails={true}
-          minLength={6}
+          minLength={2}
           query={{
             key: GOOGLE_MAPS_APIKEY,
             language: "en",
@@ -113,20 +127,26 @@ const Rider = ({ navigation }) => {
 
         />
 
-        <View style={tw`my-2.5`}>
-          <Text>Select date and time:</Text>
-          <DatePicker
+        < View style={{margin:30}}>
+      
+          <Text style={{fontSize:18,margin:5}}>Select date and time:</Text>
+         
+          <DatePicker style={{margin:5}}
             date={new Date(date)}
             onDateChange={(newDate) => {
               dispatch(
                 setDate(newDate.toISOString())
               )
             }}
-          />
+           />
+       
         </View>
-
-        <Button
-          title='Next'
+ 
+   <View style={{margin:20}}></View>
+  
+   <View style={{flex : 0,marginBottom:198, alignItems : 'center'}}>
+   <Button  style={{width:20}}
+          title='       Next       '
           onPress={() => {
             insertRiderTrip({
               origin,
@@ -136,8 +156,9 @@ const Rider = ({ navigation }) => {
             navigation.navigate('SelectRide');
           }}>
         </Button>
+       </View>
       </View>
-    </SafeAreaView>
+ 
   )
 }
 
