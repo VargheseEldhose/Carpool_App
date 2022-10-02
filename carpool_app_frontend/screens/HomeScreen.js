@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { StyleSheet, Alert,Button,Text, View } from 'react-native'
+import { Image,StyleSheet, Alert,Button,Text, View } from 'react-native'
 //import splash from './splash'
 //import SplashScreen from 'react-native-splash-screen' 
 const HomeScreen = ({navigation}) => {
@@ -10,13 +10,19 @@ const HomeScreen = ({navigation}) => {
       
 
 
-        <View style={{flex : 1,justifyContent:'center', alignItems : 'center'}}>
-          <Text style = {{fontSize : 30}}>Carpool</Text>
-         {/* <TouchableOpacity onPress={()=> Alert.alert('Button is working')}>
-    
-         // </TouchableOpacity> */}
-          <Button title ='Rider' onPress={()=> navigation.navigate('Rider')}></Button>
-          <Button title ='Driver' onPress={()=> navigation.navigate('Driver')}></Button>
+        <View style={{flex : 1, alignItems : 'center',backgroundColor:'grey'}}>
+         
+         <Image
+        style={{width:450,height:400,marginBottom:100,marginTop:1}}
+        source={{
+          uri: 'https://cdn.vectorstock.com/i/1000x1000/97/39/carsharing-icon-carpooling-linear-vector-24189739.webp'
+        }}
+         />
+
+      <View style={styles.Button}></View>
+          <Button title ='            Rider           ' onPress={()=> navigation.navigate('LoginScreen')}></Button>
+          <View style={styles.Button}></View>
+          <Button title ='          Driver          ' onPress={()=> navigation.navigate('LoginScreen')}></Button>
       
         </View>
     )
@@ -25,4 +31,7 @@ const HomeScreen = ({navigation}) => {
 export default HomeScreen
 
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({ Button:{
+  marginBottom:20,
+  padding:10
+}})
