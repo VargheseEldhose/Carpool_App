@@ -7,7 +7,7 @@ import MapView from 'react-native-maps'
 const BookRide = () => {
     return (
         <View>
-            <Text style={{ color: 'black', fontSize: 20, margin: 80 }}>Your ride is successfully booked!</Text>
+            <Text style={{ color: 'black', fontSize: 25, margin: 5 }}>Your ride is successfully booked!</Text>
             <View style={tw`h-1/2`}>
                 <RMap />
             </View>

@@ -17,6 +17,13 @@ const SelectRide = ({ navigation }) => {
   //   console.log(error);
   //  }
   // };
+
+
+  const travelTimeInformation = useSelector(selectTravelTimeInformation);
+  const dispatch = useDispatch();
+  const origin = useSelector(selectOrigin);
+  // const destination = useSelector(selectDestination);
+
   const ButtonAlert = () => {
     // insertRiderTrip({
     //   origin,
@@ -38,9 +45,6 @@ const SelectRide = ({ navigation }) => {
   }
 
 
-  const travelTimeInformation = useSelector(selectTravelTimeInformation);
-  const dispatch = useDispatch();
-  const origin = useSelector(selectOrigin);
 
   //React.useEffect( () =>{
   //  getTime();
@@ -51,14 +55,14 @@ const SelectRide = ({ navigation }) => {
         <RMap />
       </View>
       <View style={tw`h-1/2`}>
-        <Text style={{ color: 'black', fontSize: 30, margin: 5 }}>Rides available according to your search!!</Text>
+        <Text style={{ color: 'black', fontSize: 18, margin: 5 }}>Rides available according to your search!!</Text>
 
-        <Text style={{ fontSize: 20, color: 'black', margin: 15 }}>
+        <Text style={{ fontSize: 16, color: 'black', margin: 15 }}>
           Price for the Ride: {10 + ((travelTimeInformation?.duration.value * SURGE_CHARGE_RATE) / 100)}
         </Text>
 
-        <Text style={{ fontSize: 20, color: 'black', margin: 15 }}>Distance travelled in the ride: {travelTimeInformation?.distance.text}</Text>
-        <Text style={{ fontSize: 20, color: 'black', margin: 15 }}>Duration of the ride: {travelTimeInformation?.duration.text}</Text>
+        <Text style={{ fontSize: 16, color: 'black', margin: 15 }}>Distance travelled in the ride: {travelTimeInformation?.distance.text}</Text>
+        <Text style={{ fontSize: 16, color: 'black', margin: 15 }}>Duration of the ride: {travelTimeInformation?.duration.text}</Text>
         <Button title={"Book"} onPress={ButtonAlert} />
 
       </View>

@@ -17,13 +17,13 @@ import lombok.AllArgsConstructor;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/driver")
-@CrossOrigin(origins="http://localhost:8080") 
+@CrossOrigin(origins="http://localhost:8080")
 public class DriverController {
 private DriverRepository driverRepo;
 
 @GetMapping
 public List<Driver> getDriverPosts() {
-	return driverRepo.findAll();		
+	return driverRepo.findAll();
 }
 
 @PostMapping(consumes = "application/json")

@@ -19,12 +19,17 @@ const insertDriverPost = (data) => {
         headers: myHeaders,
         body: JSON.stringify(record)
     };
-    fetch(`${backendApiUrl}/rider`, requestOptions)
+    fetch(`${backendApiUrl}/driver`, requestOptions)
         .then(res => res.text())
         .then(console.log)
         .catch(error => console.log(error));
 }
 
+const viewDriverPost = () => {
+
+    fetch(`${backendApiUrl}/driver`);
+}
+
 export {
-    insertDriverPost
+    insertDriverPost, viewDriverPost
 }

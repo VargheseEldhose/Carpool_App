@@ -29,14 +29,14 @@ const Driver = ({ navigation }) => {
 
   return (
 
-    <SafeAreaView style={{ backgroundColor: 'white' }}>
+    <SafeAreaView style={{ backgroundColor: 'black' }}>
       <View style={{ width: 420, backgroundColor: "#189AEA", padding: 15 }}>
 
         <Text style={{ fontSize: 30, color: 'black', fontWeight: 'bold', fontStyle: 'italic' }}>Carpool App</Text>
 
       </View>
       <View style={tw`p-5`}>
-        <Text style={{ fontSize: 16, margin: 15, marginTop: 10 }}>Select starting point:</Text>
+        <Text style={{ fontSize: 20, margin: 15, marginTop: 25 }}>Select starting point:</Text>
         <GooglePlacesAutocomplete
 
           placeholder="Enter starting point..."
@@ -46,7 +46,7 @@ const Driver = ({ navigation }) => {
 
             },
             textInput: {
-              fontSize: 14,
+              fontSize: 18,
               color: "black",
               backgroundColor: "silver"
             }
@@ -73,7 +73,7 @@ const Driver = ({ navigation }) => {
           debounce={400}
 
         />
-        <Text style={{ fontSize: 16, margin: 15, marginTop: 10 }}>Select destination:</Text>
+        <Text style={{ fontSize: 20, margin: 15, marginTop: 25 }}>Select destination:</Text>
         <GooglePlacesAutocomplete
 
           placeholder="Enter destination point..."
@@ -86,7 +86,7 @@ const Driver = ({ navigation }) => {
               color: "black"
             },
             textInput: {
-              fontSize: 14,
+              fontSize: 18,
               color: "black",
               backgroundColor: "silver",
             },
