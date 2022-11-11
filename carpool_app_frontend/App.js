@@ -1,7 +1,8 @@
 import React,{useEffect} from 'react';
 import { Button, Text,View, Alert, TouchableOpacity } from 'react-native';
 
-
+import AllRides from './screens/allrides'
+import selectFilter from './screens/selectFilter';
 import HomeScreen from './screens/HomeScreen';
 import SignScreen from './screens/LogSign'
 import {Provider} from 'react-redux';
@@ -50,6 +51,16 @@ options={{ title: 'Log in' }}
          name="Rider"
          component={RiderScreen}
          options={{ title: 'Rider' }}
+       />
+        <Stack.Screen
+         name="selectFilter"
+         component={selectFilter}
+         options={{ title: 'selectFilter' }}
+       />
+           <Stack.Screen
+         name="AllRides"
+         component={AllRides}
+         options={{ title: 'AllRides' }}
        />
          <Stack.Screen
          name="SelectRide"

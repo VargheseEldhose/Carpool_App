@@ -41,7 +41,7 @@ const SignScreen = ({navigation}) => {
      
        
         
-          <Button style={{width:210}} title ='Sign up' onPress={()=> navigation.navigate('Driver')}></Button>
+          <Button style={{width:210}} title ='Sign up' onPress={()=> navigation.navigate('AllRides')}></Button>
         
           </View>
        

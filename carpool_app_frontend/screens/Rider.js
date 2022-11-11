@@ -127,36 +127,37 @@ const Rider = ({ navigation }) => {
 
         />
 
-        < View style={{margin:30}}>
-      
-          <Text style={{fontSize:18,margin:5}}>Select date and time:</Text>
-         
-          <DatePicker style={{margin:5}}
+<View style={{margin:20}}>
+          <Text style={{fontSize:20,margin:15,marginTop:25}}>Select date and time:</Text>
+          <DatePicker
             date={new Date(date)}
             onDateChange={(newDate) => {
               dispatch(
                 setDate(newDate.toISOString())
               )
             }}
-           />
-       
+          />
         </View>
  
    <View style={{margin:20}}></View>
   
-   <View style={{flex : 0,marginBottom:198, alignItems : 'center'}}>
+   <View style={{flex : 0,marginBottom:145, alignItems : 'center'}}>
    <Button  style={{width:20}}
           title='       Next       '
           onPress={() => {
-            insertRiderTrip({
-              origin,
-              destination,
-              date
-            });
+            //insertRiderTrip({
+             // origin,
+             // destination,
+             // date
+          //  });
             navigation.navigate('SelectRide');
           }}>
         </Button>
        </View>
+      
+    
+
+
       </View>
  
   )

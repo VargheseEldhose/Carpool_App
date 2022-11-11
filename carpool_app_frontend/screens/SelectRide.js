@@ -8,15 +8,7 @@ import { useSelector } from "react-redux"
 
 const SURGE_CHARGE_RATE = 1.5;
 const SelectRide = ({ navigation }) => {
-  // const [text,setText] = React.useState('');
-  // const getTime = async () => {
-  //     try{
-  //   const time = await AsyncStorage.getItem('appData');
-  // setText(time);}
-  //  catch (error){
-  //   console.log(error);
-  //  }
-  // };
+ 
   const ButtonAlert = () => {
     // insertRiderTrip({
     //   origin,
@@ -59,7 +51,9 @@ const SelectRide = ({ navigation }) => {
 
         <Text style={{ fontSize: 20, color: 'black', margin: 15 }}>Distance travelled in the ride: {travelTimeInformation?.distance.text}</Text>
         <Text style={{ fontSize: 20, color: 'black', margin: 15 }}>Duration of the ride: {travelTimeInformation?.duration.text}</Text>
-        <Button title={"Book"} onPress={ButtonAlert} />
+       <View style={{width:200,margin:20,marginLeft:110}}>  
+        <Button style={{width:20}} title={ " Book "} onPress={ButtonAlert}/>
+        </View>
 
       </View>
     </View>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Image,StyleSheet, Alert,Button,Text, View } from 'react-native'
 //import splash from './splash'
 //import SplashScreen from 'react-native-splash-screen' 
-const HomeScreen = ({navigation}) => {
+const selectFilter = ({navigation}) => {
 
 
    
@@ -20,15 +20,15 @@ const HomeScreen = ({navigation}) => {
          />
 
       <View style={styles.Button}></View>
-          <Button title ='            Rider           ' onPress={()=> navigation.navigate('selectFilter')}></Button>
+          <Button title ='            Search for rides           ' onPress={()=> navigation.navigate('Rider')}></Button>
           <View style={styles.Button}></View>
-          <Button title ='          Driver          ' onPress={()=> navigation.navigate('Driver')}></Button>
+          <Button title ='          Get all rides          ' onPress={()=> navigation.navigate('AllRides')}></Button>
       
         </View>
     )
 }
 
-export default HomeScreen
+export default selectFilter
 
 
 const styles = StyleSheet.create({ Button:{

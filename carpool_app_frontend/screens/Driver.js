@@ -137,7 +137,6 @@ const Driver = ({ navigation }) => {
             }}>
           </Button>
 
-          {/* <Button style={tw`${!origin && "opacity-20"}`} title='Post Event' onPress={() => { saveTime; navigation.navigate('DriverReviewPrice') }}></Button> */}
 
         </View>
       </View>
