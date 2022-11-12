@@ -22,24 +22,27 @@ const SelectRide = ({ navigation }) => {
   const [F1, setText] = useState(" ");
   const [F2, setdestText] = useState(" ");
 
-
+//setText(origin.description)
+//setdestText(destination.description)
   
   var k=0
     fetch("https://e4f7-159-203-45-40.ngrok.io/driver")
     .then(res=>res.json())
     .then(res=>{
         for(let z of res)
-        { 
-          if( z["destinationAddress"]==F1&& z["originAddress"]==F2)
+        { console.log(origin.description)
+          console.log(z["originAddress"])
+          if( z["destinationAddress"]==destination.description&& z["originAddress"]==origin.description)
           {
-          filteredorigin.push(z["destinationAddress"])
+          filteredorigin.push(z["originAddress"])
           filteredDest.push(z["destinationAddress"])
+          //console.log(filteredorigin[0])
 
           }
          
            array.push(z["destinationAddress"])
            start.push(z["originAddress"])
-           console.log(array[0,0])
+          // console.log(array[0,0])
          //  console.log(z)
          
           
@@ -91,7 +94,7 @@ const SelectRide = ({ navigation }) => {
 
             return(
               <View style={{margin:5}} >
-            <Text style={{color:'black'}}>From:  {i}</Text>
+            <Text style={{color:'black'}}>From:  {filteredorigin[j]}</Text>
             <Text style={{color:'black'}}>To:  {i}</Text>
           </View>
             );
