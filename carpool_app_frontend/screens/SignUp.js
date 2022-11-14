@@ -1,8 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useState} from 'react'
 import { StyleSheet,TextInput,Image, Alert,Button,Text, View } from 'react-native'
+import { setPassword, setPhone } from '../slices/Users';
+import { insertUser } from '../dataAccess/UsersRepo';
 //import splash from './splash'
 //import SplashScreen from 'react-native-splash-screen' 
-const SignScreen = ({navigation}) => {
+const SignUp = ({navigation}) => {
+    
+const[Email,SetEmail]=useState('');
+const[Password,SetPassword]=useState('');
+const[Phone,SetPhone]=useState('');
+var em=(Email)
+var pa=(Password)
+var ph=(Phone)
 
 
    
@@ -23,33 +32,50 @@ const SignScreen = ({navigation}) => {
        
          />
         
-          <TextInput style={{fontSize:22,color:'black',width:200,borderBottomWidth:2,marginBottom:10}}
+          <TextInput  style={{fontSize:22,color:'black',width:200,borderBottomWidth:2,marginBottom:30}}
          
            placeholder="Enter your email"
+           onChangeText={(Email) => SetEmail(Email)}
+          
           
          />
         
         <TextInput style={{fontSize:22,borderBottomColor:'#000',color:'black',width:200,marginBottom:30,borderBottomWidth:2}}
           placeholder="Password"
+          onChangeText={(Password) => setPassword(Password)}
+          
        />
-     
+       <TextInput style={{fontSize:22,color:'black',width:200,borderBottomWidth:2,marginBottom:60}}
+         
+         placeholder="Phone Number"
+         onChangeText={(Phone) => setPhone(Phone)}
+          
+        
+       />
       
-          <Button  style={styles.Button} title ='                Log  in               '  onPress={()=> navigation.navigate('HomeScreen')}></Button>
+          <Button  style={styles.Button}
+          title ='                Sign Up               '  
+          onPress={()=>{ 
+          navigation.navigate('HomeScreen'); 
+          
+            insertUser({ em,ph,pa
+              
+                          }); 
+                            alert(Email)
+
+              }}>
+
+              </Button>
          
           <View style={styles.Button}></View>
      
-          <Text style={{color:'black',fontSize:16,marginBottom:10}}>Don't Have an account yet?</Text>
-     
-       
-        
-          <Button style={{width:210}} title ='Sign up' onPress={()=> navigation.navigate('SignUp')}></Button>
         
           </View>
        
     )
 }
 
-export default SignScreen
+export default SignUp
 
 
 const styles = StyleSheet.create({
