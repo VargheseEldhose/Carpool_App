@@ -26,7 +26,7 @@ const Stack = createStackNavigator();
     SplashScreen.hide()
 
  }, [])
-
+ 
  return (
   <Provider store={store}>
   <NavigationContainer >

@@ -5,7 +5,8 @@ import { insertUser } from '../dataAccess/UsersRepo';
 //import splash from './splash'
 //import SplashScreen from 'react-native-splash-screen' 
 const SignUp = ({navigation}) => {
-    
+ // const client = require('twilio')('ACb1d9835d96a86beab56f1e39711ce694', '5f374108d89ec50eb66935f6166ee26f');
+   
 const[Email,SetEmail]=useState('');
 const[Password,SetPassword]=useState('');
 const[Phone,SetPhone]=useState('');
@@ -13,6 +14,8 @@ var em=(Email)
 var pa=(Password)
 var ph=(Phone)
 
+
+   
 
    
     return (
