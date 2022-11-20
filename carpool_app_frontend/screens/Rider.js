@@ -147,11 +147,11 @@ const Rider = ({ navigation }) => {
         <Button style={{ width: 20 }}
           title='       Next       '
           onPress={() => {
-            insertRiderTrip({
-              origin,
-              destination,
-              date
-            });
+            //insertRiderTrip({
+            // origin,
+            // destination,
+            // date
+            //  });
             navigation.navigate('SelectRide');
           }}>
         </Button>

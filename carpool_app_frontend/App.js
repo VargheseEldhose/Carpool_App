@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { Button, Text, View, Alert, TouchableOpacity } from 'react-native';
 
-
+import AllRides from './screens/allrides'
+import selectFilter from './screens/selectFilter';
 import HomeScreen from './screens/HomeScreen';
 import SignScreen from './screens/LogSign'
 import { Provider } from 'react-redux';
@@ -10,6 +11,7 @@ import SplashScreen from 'react-native-splash-screen'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import RiderScreen from './screens/Rider';
+import SignUp from './screens/SignUp';
 import DriverScreen from './screens/Driver';
 import SelectRide from './screens/SelectRide';
 import DriverReviewPrice from './screens/DriverReviewPrice';

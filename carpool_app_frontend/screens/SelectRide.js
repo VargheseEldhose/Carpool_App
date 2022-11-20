@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, Text, View, Button, Alert } from 'react-native'
 import tw from "twrnc";
 import RMap from "../components/RMap"
-import { setOrigin, setDestination, selectOrigin, selectTravelTimeInformation } from '../slices/navSlice';
+import { setOrigin, setDestination, selectDestination, selectOrigin, selectTravelTimeInformation } from '../slices/navSlice';
 import { useDispatch } from 'react-redux'
 import { useSelector } from "react-redux"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SURGE_CHARGE_RATE = 1.5;
+var array = []
+var start = []
+var filteredorigin = []
+var filteredDest = []
 const SelectRide = ({ navigation }) => {
   // const [text,setText] = React.useState('');
   // const getTime = async () => {
@@ -50,8 +55,11 @@ const SelectRide = ({ navigation }) => {
   //  getTime();
   //}, []);
   return (
-    <View>
-      <View style={tw`h-1/2`}>
+
+
+
+    <View >
+      <View style={{ marginTop: 10, height: 260 }}>
         <RMap />
       </View>
       <View style={tw`h-1/2`}>
@@ -65,12 +73,22 @@ const SelectRide = ({ navigation }) => {
         <Text style={{ fontSize: 16, color: 'black', margin: 15 }}>Duration of the ride: {travelTimeInformation?.duration.text}</Text>
         <Button title={"Book"} onPress={ButtonAlert} />
 
+        <Text style={{ fontSize: 20, color: 'black', margin: 5 }}>Distance travelled in the ride: {travelTimeInformation?.distance.text}</Text>
+        <Text style={{ fontSize: 20, color: 'black', margin: 5 }}>Duration of the ride: {travelTimeInformation?.duration.text}</Text>
+
+        <View style={{ width: 200, margin: 20, marginLeft: 110 }}>
+          <Button style={{ width: 20 }} title={" Book "} onPress={ButtonAlert} />
+        </View>
+
       </View>
-    </View>
+      )
 
-  )
-}
 
-export default SelectRide
 
-const styles = StyleSheet.create({})
+
+
+  }
+      export default SelectRide
+
+      const styles = StyleSheet.create({ })
+
