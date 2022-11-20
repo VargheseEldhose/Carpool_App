@@ -36,10 +36,5 @@ public class RiderController{
 	public Rider riderTrip(@RequestBody Rider rider) {
 		return riderRepo.save(rider);
 	}
-	
-//	@GetMapping("/i")
-//	public List<Rider> getSpecificTrip() {
-//		return riderRepo.findAll(Sort.by("name"));
-//				}
 
 }
